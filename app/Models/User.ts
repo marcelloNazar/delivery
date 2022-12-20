@@ -13,7 +13,7 @@ export default class User extends BaseModel {
   public password: string;
 
   @column()
-  public tipo: string;
+  public type: string;
 
   @column()
   public rememberMeToken: string | null;

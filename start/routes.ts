@@ -1,10 +1,17 @@
 import Route from "@ioc:Adonis/Core/Route";
-import User from "App/Models/User";
+
+// Login para os 3 tippos de user
+Route.post("/login", "AuthController.login");
+Route.post("/logout", "AuthController.logout");
+
+Route.post("/cliente/cadastro", "ClientesController.store");
+
+Route.group(() => {
+  Route.get("auth/me", "AuthController.me");
+}).middleware("auth");
 
 Route.get("/", async () => {
-  User.create({
-    email: "admin@email.com",
-    password: "123456",
-    tipo: "admin",
-  });
+  return {
+    hortifruti: "prático",
+  };
 });
