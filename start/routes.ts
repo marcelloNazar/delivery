@@ -25,6 +25,14 @@ Route.group(() => {
   Route.put("/cliente", "ClientesController.update");
 }).middleware("auth");
 
+Route.get("/estabelecimento/pedidos", "EstabelecimentosController.pedidos");
+
+Route.get("/estabelecimentos/:id", "EstabelecimentosController.show");
+
+Route.post("/pedidos", "PedidosController.store");
+Route.get("/pedidos", "PedidosController.index");
+Route.get("/pedidos/:hash_id", "PedidosController.show");
+
 Route.get("/", async () => {
   return {
     hortifruti: "prático",
